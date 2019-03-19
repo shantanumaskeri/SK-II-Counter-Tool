@@ -1,0 +1,257 @@
+fileFormatVersion: 2
+guid: 41819b9018f07b64ea6e419a9076cc88
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: POM450
+    100004: POM450_Front_Display
+    100006: POM450_Front_Light_02
+    100008: POM450_Front_Light_03
+    100010: POM450_Front_Top
+    100012: POM450_Poduct_Base_01
+    100014: POM450_Poduct_Base_02
+    100016: POM450_Poduct_Dispaly
+    100018: POM450_Top_Display_Screen_01
+    100020: POM450_Top_Display_Screen_02
+    100022: POM450_Top_Display_Screen_03
+    100024: SKII_bottle_010
+    100026: SKII_bottle_011
+    100028: SKII_Bottle_body030
+    100030: POM450_Top_Display_Screen_02_Bottle_body030
+    100032: POM450_Top_Display_Screen_02_product
+    100034: Object001
+    100036: Object002
+    100038: Object003
+    400000: //RootNode
+    400002: POM450
+    400004: POM450_Front_Display
+    400006: POM450_Front_Light_02
+    400008: POM450_Front_Light_03
+    400010: POM450_Front_Top
+    400012: POM450_Poduct_Base_01
+    400014: POM450_Poduct_Base_02
+    400016: POM450_Poduct_Dispaly
+    400018: POM450_Top_Display_Screen_01
+    400020: POM450_Top_Display_Screen_02
+    400022: POM450_Top_Display_Screen_03
+    400024: SKII_bottle_010
+    400026: SKII_bottle_011
+    400028: SKII_Bottle_body030
+    400030: POM450_Top_Display_Screen_02_Bottle_body030
+    400032: POM450_Top_Display_Screen_02_product
+    400034: Object001
+    400036: Object002
+    400038: Object003
+    2100000: POM450_Front_Display1
+    2100002: POM450_Front_Top_reflective
+    2100004: POM450_Top_Display_Screen_0
+    2100006: POM450_Top_Display_Screen_03
+    2100008: POM450_Front_Top_white
+    2100010: POM450_Top_Display_red
+    2100012: POM450_Front_bottom_blue
+    2100014: POM450_Front_Top_line
+    2100016: POM450_Front_Light
+    2100018: POM450_Front_Top_glass
+    2100020: Bottle_body
+    2100022: Chrome_tex_cover
+    2100024: SKII_bottle_3
+    2300000: POM450_Front_Display
+    2300002: POM450_Front_Light_02
+    2300004: POM450_Front_Light_03
+    2300006: POM450_Front_Top
+    2300008: POM450_Poduct_Base_01
+    2300010: POM450_Poduct_Base_02
+    2300012: POM450_Poduct_Dispaly
+    2300014: POM450_Top_Display_Screen_01
+    2300016: POM450_Top_Display_Screen_02
+    2300018: POM450_Top_Display_Screen_03
+    2300020: SKII_bottle_010
+    2300022: SKII_bottle_011
+    2300024: SKII_Bottle_body030
+    2300026: POM450_Top_Display_Screen_02_Bottle_body030
+    2300028: POM450_Top_Display_Screen_02_product
+    2300030: Object002
+    2300032: Object003
+    3300000: POM450_Front_Display
+    3300002: POM450_Front_Light_02
+    3300004: POM450_Front_Light_03
+    3300006: POM450_Front_Top
+    3300008: POM450_Poduct_Base_01
+    3300010: POM450_Poduct_Base_02
+    3300012: POM450_Poduct_Dispaly
+    3300014: POM450_Top_Display_Screen_01
+    3300016: POM450_Top_Display_Screen_02
+    3300018: POM450_Top_Display_Screen_03
+    3300020: SKII_bottle_010
+    3300022: SKII_bottle_011
+    3300024: SKII_Bottle_body030
+    3300026: POM450_Top_Display_Screen_02_Bottle_body030
+    3300028: POM450_Top_Display_Screen_02_product
+    3300030: Object002
+    3300032: Object003
+    4300000: POM450_Front_Display
+    4300002: POM450_Top_Display_Screen_01
+    4300004: POM450_Top_Display_Screen_02
+    4300006: POM450_Top_Display_Screen_03
+    4300008: POM450_Front_Top
+    4300010: POM450_Poduct_Dispaly
+    4300012: POM450_Front_Light_03
+    4300014: POM450_Poduct_Base_01
+    4300016: POM450_Poduct_Base_02
+    4300018: POM450_Front_Light_02
+    4300020: SKII_Bottle_body030
+    4300022: SKII_bottle_010
+    4300024: SKII_bottle_011
+    4300026: POM450_Top_Display_Screen_02_Bottle_body030
+    4300028: POM450_Top_Display_Screen_02_product
+    4300030: Object002
+    4300032: Object003
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bottle_body
+    second: {fileID: 2100000, guid: 0af0bee35d68f2d43b2fb2ca2308ddbe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chrome_tex_cover
+    second: {fileID: 2100000, guid: 6f4e5bc4b2a782741bc6de9028eea8b9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: POM450_Front_Display1
+    second: {fileID: 2100000, guid: 66791a99a1ffb1c479be2503c63f0e8e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: POM450_Front_Light
+    second: {fileID: 2100000, guid: 5dab11d62c6af1d4aa5c9a342f3b4f0d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: POM450_Front_Top_glass
+    second: {fileID: 2100000, guid: 97fd0500682302143914e73a0a911626, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: POM450_Front_Top_line
+    second: {fileID: 2100000, guid: 3862fac175732014db312c9a2841c650, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: POM450_Front_Top_reflective
+    second: {fileID: 2100000, guid: 9c5d0fa97907f894791b0b07e0349197, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: POM450_Front_Top_white
+    second: {fileID: 2100000, guid: 4a3173b38139b25478e462c381cba422, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: POM450_Front_bottom_blue
+    second: {fileID: 2100000, guid: 66a7d9fa5f5a12f43af95cc33491b64e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: POM450_Top_Display_Screen_0
+    second: {fileID: 2100000, guid: 4fe0d1de0cab978408809fefd819f363, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: POM450_Top_Display_Screen_03
+    second: {fileID: 2100000, guid: 209d0da433f438547b66e27ec1b0d61a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: POM450_Top_Display_red
+    second: {fileID: 2100000, guid: e9ebeb420b7872e45b751564046d2f0a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SKII_bottle_3
+    second: {fileID: 2100000, guid: d9927b4dd0e1fe24499780d51ba08188, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

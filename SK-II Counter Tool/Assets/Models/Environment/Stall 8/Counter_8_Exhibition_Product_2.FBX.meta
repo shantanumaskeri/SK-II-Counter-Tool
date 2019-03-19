@@ -1,0 +1,146 @@
+fileFormatVersion: 2
+guid: 1c933bfcf154be5478145f170daeef7c
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: SKII_bottle_004
+    100004: SKII_bottle_005
+    100006: SKII_bottle_006
+    100008: SKII_bottle_007
+    100010: SKII_bottle_008
+    100012: SKII_bottle_009
+    100014: SKII_bottle_010
+    100016: SKII_bottle_011
+    100018: SKII_bottle_012
+    100020: SKII_bottle_013
+    100022: SKII_bottle_3
+    400000: //RootNode
+    400002: SKII_bottle_004
+    400004: SKII_bottle_005
+    400006: SKII_bottle_006
+    400008: SKII_bottle_007
+    400010: SKII_bottle_008
+    400012: SKII_bottle_009
+    400014: SKII_bottle_010
+    400016: SKII_bottle_011
+    400018: SKII_bottle_012
+    400020: SKII_bottle_013
+    400022: SKII_bottle_3
+    2100000: SKII_bottle_3
+    2300000: SKII_bottle_004
+    2300002: SKII_bottle_005
+    2300004: SKII_bottle_006
+    2300006: SKII_bottle_007
+    2300008: SKII_bottle_008
+    2300010: SKII_bottle_009
+    2300012: SKII_bottle_010
+    2300014: SKII_bottle_011
+    2300016: SKII_bottle_012
+    2300018: SKII_bottle_013
+    2300020: SKII_bottle_3
+    3300000: SKII_bottle_004
+    3300002: SKII_bottle_005
+    3300004: SKII_bottle_006
+    3300006: SKII_bottle_007
+    3300008: SKII_bottle_008
+    3300010: SKII_bottle_009
+    3300012: SKII_bottle_010
+    3300014: SKII_bottle_011
+    3300016: SKII_bottle_012
+    3300018: SKII_bottle_013
+    3300020: SKII_bottle_3
+    4300000: SKII_bottle_008
+    4300002: SKII_bottle_009
+    4300004: SKII_bottle_007
+    4300006: SKII_bottle_006
+    4300008: SKII_bottle_005
+    4300010: SKII_bottle_013
+    4300012: SKII_bottle_012
+    4300014: SKII_bottle_011
+    4300016: SKII_bottle_010
+    4300018: SKII_bottle_004
+    4300020: SKII_bottle_3
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
