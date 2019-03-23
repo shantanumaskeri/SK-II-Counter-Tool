@@ -74,7 +74,10 @@ public class EnvironmentSetup : MonoBehaviour
 	{
 		if (gameManager.campaignData.getDraftEdit() == true)
 		{
-			readDataFromFile();
+			if (gameManager.environmentData.getEnvironment().GetComponent<EnvironmentDetails>().getTextureChange() == true)
+			{
+				readDataFromFile();
+			}
 		}
 	}
 

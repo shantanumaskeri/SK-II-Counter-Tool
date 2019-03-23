@@ -132,24 +132,29 @@ public class SelectionMenu : MonoBehaviour
 
 	private void prepareEnvironmentSelection()
 	{
-		addEnvironmentsToSelection(allCounters, counterPrefabs, countersParent);
-		addEnvironmentsToSelection(allFixtures, fixturePrefabs, fixturesParent);
+		if (environmentData.getType() == "counter")
+		{
+			removeEnvironmentsFromSelection(countersParent);
+			addEnvironmentsToSelection(counterPrefabs, countersParent);
+		}
+		else
+		{
+			removeEnvironmentsFromSelection(fixturesParent);
+			addEnvironmentsToSelection(fixturePrefabs, fixturesParent);
+		}
 	}
 
 	#endregion
 
 	#region Custom function - Add environments to selection menu
 
-	private void addEnvironmentsToSelection(GameObject main, GameObject[] environmentPrefab, GameObject parent)
+	private void addEnvironmentsToSelection(GameObject[] environmentPrefab, GameObject parent)
 	{
-		if (main.activeSelf)
+		for (int i = 0; i < environmentPrefab.Length; i++)
 		{
-			for (int i = 0; i < environmentPrefab.Length; i++)
-			{
-				GameObject environment = Instantiate(environmentPrefab[i], environmentPrefab[i].transform.position, Quaternion.identity) as GameObject;
-				environment.transform.SetParent(parent.transform, false);
-				environment.GetComponent<Button>().onClick.AddListener(delegate { setupEnvironment(environment.GetComponent<SelectionDetails>().environmentID); });
-			}
+			GameObject environment = Instantiate(environmentPrefab[i], environmentPrefab[i].transform.position, Quaternion.identity) as GameObject;
+			environment.transform.SetParent(parent.transform, false);
+			environment.GetComponent<Button>().onClick.AddListener(delegate { setupEnvironment(environment.GetComponent<SelectionDetails>().environmentID); });
 		}
 	}
 
@@ -157,16 +162,13 @@ public class SelectionMenu : MonoBehaviour
 
 	#region Custom function - Remove environments from selection menu
 
-	private void removeEnvironmentsFromSelection(GameObject main, GameObject parent)
+	private void removeEnvironmentsFromSelection(GameObject parent)
 	{
-		if (main.activeSelf)
+		int numChildren = parent.transform.childCount;
+		for (int i = 0; i < numChildren; i++)
 		{
-			int numChildren = parent.transform.childCount;
-			for (int i = 0; i < numChildren; i++)
-			{
-				GameObject environment = parent.transform.GetChild(i).gameObject;
-				Destroy(environment);
-			}
+			GameObject environment = parent.transform.GetChild(i).gameObject;
+			Destroy(environment);
 		}
 	}
 
@@ -207,8 +209,14 @@ public class SelectionMenu : MonoBehaviour
 				{
 					if (storeType == lines[2])
 					{
-						updateEnvironmentMenu(allCounters, counterPrefabs, countersParent, lines);
-						updateEnvironmentMenu(allFixtures, fixturePrefabs, fixturesParent, lines);
+						if (environmentData.getType() == "counter")
+						{
+							updateEnvironmentMenu(counterPrefabs, countersParent, lines);
+						}
+						else
+						{
+							updateEnvironmentMenu(fixturePrefabs, fixturesParent, lines);
+						}
 					}
 				}
 			}
@@ -221,19 +229,16 @@ public class SelectionMenu : MonoBehaviour
 
 	#region Custom function - Update the menu of environment selection
 
-	private void updateEnvironmentMenu(GameObject main, GameObject[] environmentPrefab, GameObject parent, string[] data)
+	private void updateEnvironmentMenu(GameObject[] environmentPrefab, GameObject parent, string[] data)
 	{
-		removeEnvironmentsFromSelection(main, parent);
+		removeEnvironmentsFromSelection(parent);
 
-		if (main.activeSelf)
+		environmentIDs.Add(int.Parse(data[3]));
+		for (int j = 0; j < environmentIDs.Count; j++)
 		{
-			environmentIDs.Add(int.Parse(data[3]));
-			for (int j = 0; j < environmentIDs.Count; j++)
-			{
-				GameObject environment = Instantiate(environmentPrefab[environmentIDs[j]], environmentPrefab[environmentIDs[j]].transform.position, Quaternion.identity) as GameObject;
-				environment.transform.SetParent(parent.transform, false);
-				environment.GetComponent<Button>().onClick.AddListener(delegate { setupEnvironment(environment.GetComponent<SelectionDetails>().environmentID); });
-			}
+			GameObject environment = Instantiate(environmentPrefab[environmentIDs[j]], environmentPrefab[environmentIDs[j]].transform.position, Quaternion.identity) as GameObject;
+			environment.transform.SetParent(parent.transform, false);
+			environment.GetComponent<Button>().onClick.AddListener(delegate { setupEnvironment(environment.GetComponent<SelectionDetails>().environmentID); });
 		}
 	}
 
@@ -281,25 +286,43 @@ public class SelectionMenu : MonoBehaviour
 
 	private void applyFilterToMenu(int index, Dropdown menu1, Dropdown menu2, Dropdown menu3)
 	{
-		toggleEnvironments(allCounters, countersParent, true);
-		toggleEnvironments(allFixtures, fixturesParent, true);
-
+		if (environmentData.getType() == "counter")
+		{
+			toggleEnvironments(countersParent, true);
+		}
+		else
+		{
+			toggleEnvironments(fixturesParent, true);
+		}
+		
 		if (index > 0)
 		{
 			getEnvironmentTag(menu1.options[index].text);
 		}
-		
-		toggleEnvironments(allCounters, countersParent, false);
-		toggleEnvironments(allFixtures, fixturesParent, false);
 
+		if (environmentData.getType() == "counter")
+		{
+			toggleEnvironments(countersParent, false);
+		}
+		else
+		{
+			toggleEnvironments(fixturesParent, false);
+		}
+		
 		if (index > 0)
 		{
 			showEnvironmentByTag();
 		}
 		else
 		{
-			toggleEnvironments(allCounters, countersParent, true);
-			toggleEnvironments(allFixtures, fixturesParent, true);
+			if (environmentData.getType() == "counter")
+			{
+				toggleEnvironments(countersParent, true);
+			}
+			else
+			{
+				toggleEnvironments(fixturesParent, true);
+			}
 		}
 
 		toggleMenus(menu2, !System.Convert.ToBoolean(index));
@@ -311,15 +334,12 @@ public class SelectionMenu : MonoBehaviour
 
 	#region Custom function - Toggle (show/hide) environments
 
-	private void toggleEnvironments(GameObject main, GameObject parent, bool toggle)
+	private void toggleEnvironments(GameObject parent, bool toggle)
 	{
-		if (main.activeSelf)
+		int numChildren = parent.transform.childCount;
+		for (int i = 0; i < numChildren; i++)
 		{
-			int numChildren = parent.transform.childCount;
-			for (int i = 0; i < numChildren; i++)
-			{
-				parent.transform.GetChild(i).gameObject.SetActive(toggle);
-			}
+			parent.transform.GetChild(i).gameObject.SetActive(toggle);
 		}
 	}
 
@@ -380,16 +400,30 @@ public class SelectionMenu : MonoBehaviour
 	{
 		if (string.IsNullOrEmpty(input))
 		{
-			toggleEnvironments(allCounters, countersParent, true);
-			toggleEnvironments(allFixtures, fixturesParent, true);
+			if (environmentData.getType() == "counter")
+			{
+				toggleEnvironments(countersParent, true);
+			}
+			else
+			{
+				toggleEnvironments(fixturesParent, true);
+			}
+			
 			toggleMenus(markets, true);
 			toggleMenus(city, true);
 			toggleMenus(fixtureTypes, true);
 		}
 		else
 		{
-			filterBySearch(allCounters, countersParent, input);
-			filterBySearch(allFixtures, fixturesParent, input);
+			if (environmentData.getType() == "counter")
+			{
+				filterBySearch(countersParent, input);
+			}
+			else
+			{
+				filterBySearch(fixturesParent, input);
+			}
+			
 			toggleMenus(markets, false);
 			toggleMenus(city, false);
 			toggleMenus(fixtureTypes, false);
@@ -400,23 +434,20 @@ public class SelectionMenu : MonoBehaviour
 
 	#region Custom function - Filter environment by search field results
 
-	private void filterBySearch(GameObject main, GameObject parent, string input)
+	private void filterBySearch(GameObject parent, string input)
 	{
-		if (main.activeSelf)
+		int numChildren = parent.transform.childCount;
+		for (int i = 0; i < numChildren; i++)
 		{
-			int numChildren = parent.transform.childCount;
-			for (int i = 0; i < numChildren; i++)
+			if (parent.transform.GetChild(i).gameObject.transform.Find("Stall Name").gameObject.GetComponent<Text>().text.ToLower().Contains(input))
 			{
-				if (parent.transform.GetChild(i).gameObject.transform.Find("Stall Name").gameObject.GetComponent<Text>().text.ToLower().Contains(input))
-				{
-					parent.transform.GetChild(i).gameObject.SetActive(true);
-				}
-				else
-				{
-					parent.transform.GetChild(i).gameObject.SetActive(false);
-				}
+				parent.transform.GetChild(i).gameObject.SetActive(true);
 			}
-		}	
+			else
+			{
+				parent.transform.GetChild(i).gameObject.SetActive(false);
+			}
+		}
 	}
 
 	#endregion
@@ -425,27 +456,30 @@ public class SelectionMenu : MonoBehaviour
 
 	public void filterByDate(int index)
 	{
-		sortChildrenComponents(allCounters, countersParent);
-		sortChildrenComponents(allFixtures, fixturesParent);
+		if (environmentData.getType() == "counter")
+		{
+			sortChildrenComponents(countersParent);
+		}
+		else
+		{
+			sortChildrenComponents(fixturesParent);
+		}
 	}
 
 	#endregion
 
 	#region Custom function - Sort children components in order given by date
 
-	private void sortChildrenComponents(GameObject main, GameObject parent)
+	private void sortChildrenComponents(GameObject parent)
 	{
-		if (main.activeSelf)
+		int numChildren = parent.transform.childCount;
+		int[] indexArray = new int[numChildren];
+
+		for (int i = 0; i < numChildren; i++)
 		{
-			int numChildren = parent.transform.childCount;
-			int[] indexArray = new int[numChildren];
+			indexArray[i] = i;
 
-			for (int i = 0; i < numChildren; i++)
-			{
-				indexArray[i] = i;
-
-				parent.transform.GetChild(i).gameObject.transform.SetSiblingIndex(parent.transform.GetChild(i).gameObject.transform.GetSiblingIndex() - indexArray[i]);
-			}
+			parent.transform.GetChild(i).gameObject.transform.SetSiblingIndex(parent.transform.GetChild(i).gameObject.transform.GetSiblingIndex() - indexArray[i]);
 		}
 	}
 
@@ -458,11 +492,16 @@ public class SelectionMenu : MonoBehaviour
 		environmentData.setID(id);
 		environmentData.setMarketID((id + 1).ToString());
 
-		hideAllCheckboxes(allCounters, countersParent);
-		showCheckbox(allCounters, EventSystem.current.currentSelectedGameObject);
+		if (environmentData.getType() == "counter")
+		{
+			hideAllCheckboxes(countersParent);
+		}
+		else
+		{
+			hideAllCheckboxes(fixturesParent);
+		}
 
-		hideAllCheckboxes(allFixtures, fixturesParent);
-		showCheckbox(allFixtures, EventSystem.current.currentSelectedGameObject);
+		showCheckbox(EventSystem.current.currentSelectedGameObject);
 	}
 
 	#endregion
@@ -473,25 +512,28 @@ public class SelectionMenu : MonoBehaviour
 	{
 		environmentData.setID(-1);
 
-		hideAllCheckboxes(allCounters, countersParent);
-		hideAllCheckboxes(allFixtures, fixturesParent);
+		if (environmentData.getType() == "counter")
+		{
+			hideAllCheckboxes(countersParent);
+		}
+		else
+		{
+			hideAllCheckboxes(fixturesParent);
+		}
 	}
 
 	#endregion
 
 	#region Custom function - Show selection checkbox
 
-	private void showCheckbox(GameObject main, GameObject target)
+	private void showCheckbox(GameObject target)
 	{
-		if (main.activeSelf)
+		int numChildren = target.transform.childCount;
+		for (int i = 0; i < numChildren; i++)
 		{
-			int numChildren = target.transform.childCount;
-			for (int i = 0; i < numChildren; i++)
+			if (target.transform.GetChild(i).gameObject.tag == "Checkmark")
 			{
-				if (target.transform.GetChild(i).gameObject.tag == "Checkmark")
-				{
-					target.transform.GetChild(i).gameObject.SetActive(true);
-				}
+				target.transform.GetChild(i).gameObject.SetActive(true);
 			}
 		}
 	}
@@ -500,17 +542,14 @@ public class SelectionMenu : MonoBehaviour
 
 	#region Custom function - Hide selection checkbox
 
-	private void hideAllCheckboxes(GameObject main, GameObject parent)
+	private void hideAllCheckboxes(GameObject parent)
 	{
-		if (main.activeSelf)
+		int numChildren = parent.transform.childCount;
+		for (int i = 0; i < numChildren; i++)
 		{
-			int numChildren = parent.transform.childCount;
-			for (int i = 0; i < numChildren; i++)
+			if (parent.transform.GetChild(i).gameObject.transform.Find("Check").gameObject.tag == "Checkmark")
 			{
-				if (parent.transform.GetChild(i).gameObject.transform.Find("Check").gameObject.tag == "Checkmark")
-				{
-					parent.transform.GetChild(i).gameObject.transform.Find("Check").gameObject.SetActive(false);
-				}
+				parent.transform.GetChild(i).gameObject.transform.Find("Check").gameObject.SetActive(false);
 			}
 		}
 	}
@@ -576,10 +615,7 @@ public class SelectionMenu : MonoBehaviour
 	private void executeTransitionTo(GameObject section)
 	{
 		StopAllCoroutines();
-
-		removeEnvironmentsFromSelection(allCounters, countersParent);
-		removeEnvironmentsFromSelection(allFixtures, fixturesParent);
-
+		
 		gameObject.SetActive(false);
 		section.SetActive(true);
 	}

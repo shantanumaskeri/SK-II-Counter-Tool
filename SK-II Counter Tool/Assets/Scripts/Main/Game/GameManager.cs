@@ -85,7 +85,6 @@ public class GameManager : MonoBehaviour
 	private string roleName;
 	private string snapshotFormat;
 	private string filename;
-	private string previousData;
 	private List<string> availableRatioList = new List<string>();
 	private string[,] counterDetailsArray = new string[13, 3] { { "Global Counter", "Domestic - China", "China" }, { "Iwataya", "Domestic - Japan", "Japan" }, { "Lotte Bandung", "Domestic - Korea", "Korea" }, { "Global Counter", "Domestic - Korea", "Korea" }, { "Global Counter (Inbound)", "Domestic - Japan", "Japan" }, { "Global Counter (RV)", "Travel Retail - Hong Kong", "Hong Kong" }, { "Haitang Bay", "Travel Retail - China", "China" }, { "Everich Kinmen Island", "Travel Retail - Taiwan", "Taiwan" }, { "Keio Shinjuku", "Domestic - Japan", "Japan" }, { "Shinsegae Kyungki", "Domestic - Korea", "Korea" }, { "Lotte Downtown", "Domestic - Korea", "Korea" }, { "Tian Shan Bai Huo (Sparkle)", "Domestic - China", "China" }, { "Shanghai New World (RV)", "Domestic - China", "China" } };
 	private string[,] fixtureDetailsArray = new string[3, 3] { { "Initiative Highlighter", "Market", "City" }, { "POM", "Market", "City" }, { "POM450", "Market", "City" } };
@@ -125,7 +124,6 @@ public class GameManager : MonoBehaviour
 	{
 		isCameraSwitched = false;
 		isEditModeActive = true;
-		previousData = "";
 		roleName = userData.GetRoleName();
 	}
 
@@ -619,16 +617,35 @@ public class GameManager : MonoBehaviour
 
 	private void writeDataForAssetSelection(string file)
 	{
+		bool uniqueDataEntry = false;
 		string data = campaignData.getCampaignName() + "," + environmentData.getMarketID() + "," + environmentData.getType() + "," + environmentData.getID().ToString();
 
-		if (data != previousData)
+		if (!File.Exists(file))
+		{
+			uniqueDataEntry = true;
+		}
+		else
+		{
+			using (StreamReader reader = new StreamReader(file))
+			{
+				while (!reader.EndOfStream)
+				{
+					string fileContents = reader.ReadLine();
+					
+					if (fileContents != data)
+					{
+						uniqueDataEntry = true;
+					}
+				}
+			}
+		}
+		
+		if (uniqueDataEntry)
 		{
 			using (StreamWriter writer = new StreamWriter(file, true))
 			{
 				writer.WriteLine(data);
 			}
-
-			previousData = data;
 		}
 	}
 
