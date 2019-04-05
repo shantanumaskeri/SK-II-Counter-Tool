@@ -275,11 +275,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114499687981877164, guid: f58c7b9bfc2353c45bc7885b016e3bb8,
-        type: 2}
-      propertyPath: counterPrefabs.Array.data[5]
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 114984553130741030, guid: f58c7b9bfc2353c45bc7885b016e3bb8,
         type: 2}
       propertyPath: CampaignOptions
@@ -320,16 +315,6 @@ Prefab:
       propertyPath: applicationSetup
       value: 
       objectReference: {fileID: 225175459}
-    - target: {fileID: 114750160835340238, guid: f58c7b9bfc2353c45bc7885b016e3bb8,
-        type: 2}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114750160835340238, guid: f58c7b9bfc2353c45bc7885b016e3bb8,
-        type: 2}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f58c7b9bfc2353c45bc7885b016e3bb8, type: 2}
   m_IsPrefabAsset: 0
